@@ -1,1 +1,4 @@
 /plots/
+__pycache__/
+Test.ipynb
+growingErrors.py

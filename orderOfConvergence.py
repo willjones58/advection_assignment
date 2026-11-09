@@ -28,7 +28,7 @@ def orderOfConvergence(init, schemes, outFile, nx, ntFactor = 10, u = 1, endTime
     # Colours for each line
     cols = ['#D55E00', '#56B4E9', '#009E73', '#CC79A7', '#E69F00', "#F0E442", '#0072B2']
 
-    # Set nt = A*nx so that the Courant number is fixed.
+    # Set nt = k*nx so that the Courant number is fixed.
     nt = ntFactor*nx
 
     # Derived parameters
@@ -73,5 +73,3 @@ def orderOfConvergence(init, schemes, outFile, nx, ntFactor = 10, u = 1, endTime
     plt.ylabel(r'$\ell_2$')
     plt.legend()
     plt.savefig("plots/"+outFile)
-
-# Can we plot the order of convergence, for varying values of c on one graph for warming beam, so nt_factor is variable

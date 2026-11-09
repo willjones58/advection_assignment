@@ -14,10 +14,10 @@ def courantErrorsDt(init, schemes, outFile, nt,
     Author: William Jones <w.j.jones@pgr.reading.ac.uk>
     Evaluates the l2 error of multiple advection schemes for varying Courant numbers by varying nt, with nx constant
     Parameters:
-        nx (1darray): An array containing the numbers of points in space.
+        nx (int): The numbers of points in space.
         init (callable): Function to set the initial conditions.
         schemes (callable): Schemes to evaluate.
-        nt (int): The number of time steps.
+        nt (1darray): An array containing the different numbers of time steps.
         u (float): The wind speed
         endTime (float) : The final time
         outFile (string): The name of the output file.
@@ -50,6 +50,7 @@ def courantErrorsDt(init, schemes, outFile, nt,
         # Set up an array to store the l2 erorrs for each resolution
         errors = np.zeros(len(nt))
 
+        # Evaluate the numerical scheme for each value of nt
         for j in range(len(nt)):
             
             # The solution, phi, is stored as a list of arrays at different time
@@ -76,7 +77,7 @@ def courantErrorsDx(init, schemes, outFile,
                            xLim = [0,1], yLim = [None,None]):
     '''
     Author: William Jones <w.j.jones@pgr.reading.ac.uk>
-    Evaluates the l2 error of multiple advection schemes for varying Courant numbers by varying nx
+    Evaluates the l2 error of multiple advection schemes for varying Courant numbers by varying nx, with nt constant
     Parameters:
         nx (1darray): An array containing the numbers of points in space.
         init (callable): Function to set the initial conditions.
@@ -93,7 +94,7 @@ def courantErrorsDx(init, schemes, outFile,
     Returns:
         None
     '''
-    
+    # Derived parameters
     dx = (xLim[1] - xLim[0])/nx
     c = nx*u*endTime/(nt*(xLim[1] - xLim[0])) # Courant numbers, dt*u/dx
     
@@ -106,9 +107,10 @@ def courantErrorsDx(init, schemes, outFile,
         # Set up an array to store the l2 erorrs for each resolution
         errors = np.zeros(len(nx))
 
+        # Evaluate the numerical scheme for each value of nx
         for j in range(len(nx)):
             
-            # Derived parameters
+            # Calculate the grid points for the current number of points in space
             x = np.linspace(xLim[0], xLim[1], nx[j], endpoint=False)
             
             # Set the initial conditions

@@ -1,6 +1,6 @@
 ###############################################################################
 # Date Revised: 6 Nov 2026
-# Author: Hilary Weller <h.weller@reading.ac.uk>, William Jones <w.j.jones@pgr.reading.ac.uk>
+# Authors: Hilary Weller <h.weller@reading.ac.uk>, William Jones <w.j.jones@pgr.reading.ac.uk>
 # Description: Basic tests of advection schemes
 ###############################################################################
 import matplotlib.pyplot as plt
@@ -10,7 +10,7 @@ def compareSchemeSnapshots(init, schemes, outFile,
                            nx = 40, nt = 10, u = 1, endTime = 0.4,
                            xLim = [0,1], yLim = [None,None]):
     '''
-    Author: Hilary Weller <h.weller@reading.ac.uk>
+    Authors: Hilary Weller <h.weller@reading.ac.uk>, William Jones <w.j.jones@pgr.reading.ac.uk>
     Compares snapshots of results of advection schemes using periodic boundaries
     Parameters:
         nx (int): The number of points in space

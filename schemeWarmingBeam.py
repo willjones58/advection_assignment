@@ -1,5 +1,5 @@
 # Warming-Beam scheme for solving the advection equation
-# Authors: Hilary Weller <h.weller@reading.ac.uk>, William Jones <w.j.jones@pgr.reading.ac.uk>
+# Author: William Jones <w.j.jones@pgr.reading.ac.uk>
 
 import numpy as np
 
